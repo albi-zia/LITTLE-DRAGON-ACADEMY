@@ -1,116 +1,325 @@
 <!DOCTYPE html>
-<html lang="en" class="scroll-smooth">
+<html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Little Dragon Martial Arts Academy</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        dragon: {
-                            red: '#dc2626',
-                            darkred: '#991b1b',
-                            gold: '#fbbf24',
-                            dark: '#0f172a',
-                            card: '#1e293b'
-                        }
-                    },
-                    fontFamily: {
-                        sans: ['Roboto', 'sans-serif'],
-                        display: ['Oswald', 'sans-serif'],
-                    }
-                }
-            }
-        }
-    </script>
-    <style>
-        @import url('https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;700&family=Roboto:wght@300;400;500;700&display=swap');
-        
-        body {
-            background-color: #0f172a;
-            color: #e2e8f0;
-        }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Little Dragon Martial Arts Academy | Chinese Kung-Fu, Wushu &amp; Yoga — Ayarkunnam</title>
+<meta name="description" content="Little Dragon Martial Arts Academy in Ayarkunnam, Kottayam teaches Chinese Kung-Fu, Wushu and Yoga under certified black belt masters. Reg. No. KTM/TC/15/2015.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@400;500;600;700;800;900&amp;family=Source+Serif+4:wght@400;600;700&amp;family=IBM+Plex+Mono:wght@400;500;600&amp;display=swap" rel="stylesheet">
+<style>
+  /* ===== Tokens ===== */
+  :root{
+    --ink:#17140F;
+    --ink-2:#211C15;
+    --paper:#EDE3CC;
+    --rice:#F5EFE0;
+    --seal:#9F2B2F;
+    --seal-bright:#C23B3B;
+    --brass:#B4923F;
+    --brass-light:#D8BE79;
+    --pine:#33473A;
+    --muted:#A69B85;
+    --line: rgba(245,239,224,0.14);
+    --font-display: 'Big Shoulders Display', sans-serif;
+    --font-body: 'Source Serif 4', serif;
+    --font-mono: 'IBM Plex Mono', monospace;
+  }
 
-        .hero-bg {
-            background-image: linear-gradient(to right, rgba(15, 23, 42, 0.95), rgba(15, 23, 42, 0.7)), url('https://images.unsplash.com/photo-1555597673-b21d5c935865?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80');
-            background-size: cover;
-            background-position: center;
-            background-attachment: fixed;
-        }
+  /* ===== Reset ===== */
+  *,*::before,*::after{ box-sizing:border-box; }
+  html{ scroll-behavior:smooth; }
+  body{ margin:0; background:var(--ink); color:var(--rice); font-family:var(--font-body); -webkit-font-smoothing:antialiased; }
+  img,svg{ display:block; max-width:100%; }
+  a{ color:inherit; }
+  h1,h2,h3{ margin:0; }
+  p{ margin:0; }
+  ul{ list-style:none; margin:0; padding:0; }
+  section{ scroll-margin-top:90px; }
+  a:focus-visible, button:focus-visible{ outline:2px solid var(--brass-light); outline-offset:3px; }
 
-        .clip-diagonal {
-            clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
-        }
+  /* ===== Layout helpers ===== */
+  .section{ padding-block:100px; }
+  .bg-ink{ background:var(--ink); }
+  .bg-ink2{ background:var(--ink-2); }
+  .container{ max-width:1200px; margin:0 auto; padding-inline:24px; }
+  .eyebrow{ font-family:var(--font-mono); font-size:.78rem; letter-spacing:.18em; text-transform:uppercase; color:var(--seal); margin-bottom:14px; }
+  .section h2{ font-family:var(--font-display); font-weight:700; font-size:clamp(2rem,3vw + 1rem,3.2rem); text-transform:uppercase; letter-spacing:.01em; margin-bottom:24px; color:var(--rice); }
+  .lead{ font-family:var(--font-body); font-size:clamp(1.05rem,1vw + .9rem,1.25rem); line-height:1.7; max-width:64ch; color:rgba(245,239,224,.85); }
 
-        .gold-gradient {
-            background: linear-gradient(135deg, #fbbf24 0%, #d97706 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
+  .btn{ display:inline-flex; align-items:center; gap:.5rem; padding:.9rem 1.6rem; font-family:var(--font-mono); font-size:.82rem; letter-spacing:.08em; text-transform:uppercase; text-decoration:none; border-radius:2px; transition:transform .25s ease, background .25s ease, color .25s ease, border-color .25s ease; }
+  .btn-primary{ background:var(--seal); color:var(--rice); border:1px solid var(--seal); }
+  .btn-primary:hover{ background:var(--seal-bright); border-color:var(--seal-bright); transform:translateY(-2px); }
+  .btn-outline{ background:transparent; color:var(--rice); border:1px solid var(--brass); }
+  .btn-outline:hover{ background:var(--brass); color:var(--ink); transform:translateY(-2px); }
 
-        .hover-card {
-            transition: all 0.4s ease;
-        }
-        .hover-card:hover {
-            transform: translateY(-10px);
-            border-color: #dc2626;
-            box-shadow: 0 10px 30px -10px rgba(220, 38, 38, 0.3);
-        }
-    </style>
+  .reveal{ opacity:0; transform:translateY(24px); transition:opacity .6s ease, transform .6s ease; }
+  .reveal.in-view{ opacity:1; transform:none; }
+
+  .seal-mark{ display:inline-block; }
+  .seal-mark.small{ width:40px; height:40px; }
+  .seal-mark.medium{ width:56px; height:56px; }
+  .seal-mark.large{ width:320px; height:320px; filter:drop-shadow(0 20px 40px rgba(0,0,0,.45)); }
+
+  /* ===== Nav ===== */
+  #nav{ position:fixed; top:0; left:0; right:0; z-index:50; padding-block:18px; transition:background .3s ease, padding .3s ease, border-color .3s ease; border-bottom:1px solid transparent; }
+  #nav.scrolled{ background:rgba(23,20,15,.92); backdrop-filter:blur(10px); padding-block:12px; border-bottom-color:var(--line); }
+  .nav-inner{ max-width:1200px; margin:0 auto; padding-inline:24px; display:flex; align-items:center; justify-content:space-between; gap:24px; }
+  .brand{ display:flex; align-items:center; gap:12px; text-decoration:none; color:var(--rice); }
+  .brand-text{ display:flex; flex-direction:column; line-height:1.15; }
+  .brand-name{ font-family:var(--font-display); font-weight:700; font-size:1.15rem; letter-spacing:.03em; }
+  .brand-sub{ font-family:var(--font-mono); font-size:.58rem; letter-spacing:.14em; color:var(--brass-light); }
+  .nav-links{ display:flex; align-items:center; gap:28px; font-family:var(--font-mono); font-size:.8rem; letter-spacing:.05em; }
+  .nav-links a{ color:var(--rice); text-decoration:none; opacity:.85; transition:opacity .2s ease, color .2s ease; }
+  .nav-links a:hover{ opacity:1; color:var(--brass-light); }
+  .nav-links a.nav-cta{ background:var(--seal); padding:.6rem 1.1rem; border:1px solid var(--seal); opacity:1; }
+  .nav-links a.nav-cta:hover{ background:var(--seal-bright); border-color:var(--seal-bright); color:var(--rice); }
+  .nav-toggle{ display:none; background:none; border:none; cursor:pointer; padding:6px; z-index:60; flex-direction:column; gap:5px; }
+  .nav-toggle span{ width:24px; height:2px; background:var(--rice); transition:transform .3s ease, opacity .3s ease; }
+  .nav-toggle.active span:nth-child(1){ transform:translateY(7px) rotate(45deg); }
+  .nav-toggle.active span:nth-child(2){ opacity:0; }
+  .nav-toggle.active span:nth-child(3){ transform:translateY(-7px) rotate(-45deg); }
+
+  @media (max-width:880px){
+    .nav-links{ position:fixed; top:0; right:0; height:100vh; width:min(78vw,320px); background:var(--ink-2); flex-direction:column; align-items:flex-start; justify-content:center; padding:40px; gap:26px; transform:translateX(100%); transition:transform .35s ease; border-left:1px solid var(--line); }
+    .nav-links.open{ transform:translateX(0); }
+    .nav-toggle{ display:flex; }
+  }
+
+  /* ===== Hero ===== */
+  .hero{ min-height:100svh; display:flex; flex-direction:column; justify-content:center; padding-top:110px; position:relative; overflow:hidden; background:radial-gradient(ellipse at 72% 22%, rgba(159,43,47,.14), transparent 60%), var(--ink); }
+  .hero-inner{ max-width:1200px; margin:0 auto; width:100%; padding-inline:24px; display:grid; grid-template-columns:1.2fr .8fr; align-items:center; gap:40px; flex:1; }
+  .eyebrow-hero{ font-family:var(--font-mono); font-size:.8rem; letter-spacing:.18em; text-transform:uppercase; color:var(--brass-light); margin-bottom:22px; }
+  .hero-title{ font-family:var(--font-display); font-weight:800; line-height:.94; text-transform:uppercase; margin-bottom:28px; }
+  .hero-title .line{ display:block; font-size:clamp(2.6rem,6vw + 1rem,6rem); opacity:0; transform:translateY(30px); animation:lineUp .7s ease forwards; }
+  .hero-title .line-1{ color:var(--rice); animation-delay:.5s; }
+  .hero-title .line-2{ color:var(--seal-bright); animation-delay:.66s; }
+  @keyframes lineUp{ to{ opacity:1; transform:none; } }
+  .hero-sub{ font-family:var(--font-body); font-size:clamp(1.05rem,1vw + .9rem,1.2rem); line-height:1.7; color:rgba(245,239,224,.82); max-width:52ch; margin-bottom:36px; }
+  .hero-ctas{ display:flex; flex-wrap:wrap; gap:16px; }
+  .hero-seal{ display:flex; justify-content:center; align-items:center; }
+  .hero-seal .seal-mark.large{ animation:sealStamp .9s cubic-bezier(.2,.8,.2,1) both; animation-delay:.2s; }
+  @keyframes sealStamp{ 0%{ transform:scale(2.2) rotate(0deg); opacity:0; } 60%{ transform:scale(.94) rotate(-10deg); opacity:1; } 80%{ transform:scale(1.03) rotate(-7deg); } 100%{ transform:scale(1) rotate(-8deg); opacity:1; } }
+  .ledger-strip{ border-top:1px solid var(--line); margin-top:40px; padding-block:18px; display:flex; flex-wrap:wrap; gap:10px 18px; font-family:var(--font-mono); font-size:.72rem; letter-spacing:.08em; color:var(--muted); max-width:1200px; margin-inline:auto; padding-inline:24px; width:100%; }
+  .ledger-strip .dot{ color:var(--seal-bright); }
+
+  @media (max-width:880px){
+    .hero-inner{ grid-template-columns:1fr; text-align:left; }
+    .hero-seal{ order:-1; margin-bottom:-8px; }
+    .hero-seal .seal-mark.large{ width:180px; height:180px; }
+  }
+
+  @media (prefers-reduced-motion:reduce){
+    *{ animation-duration:.001ms !important; animation-iteration-count:1 !important; transition-duration:.001ms !important; scroll-behavior:auto !important; }
+  }
+
+  /* ===== About ===== */
+  .ledger-rows{ margin-top:48px; border-top:1px solid var(--line); }
+  .ledger-row{ display:flex; flex-wrap:wrap; gap:6px 24px; padding-block:20px; border-bottom:1px solid var(--line); }
+  .ledger-label{ font-family:var(--font-mono); font-size:.85rem; letter-spacing:.06em; text-transform:uppercase; color:var(--brass-light); min-width:200px; }
+  .ledger-desc{ font-family:var(--font-body); color:rgba(245,239,224,.8); }
+
+  /* ===== Roster (paper section) ===== */
+  #roster{ background:var(--paper); color:var(--ink); }
+  #roster .eyebrow{ color:var(--seal); }
+  #roster h2{ color:var(--ink); }
+  #roster .lead{ color:rgba(23,20,15,.78); }
+  .roster-list{ margin-top:40px; border-top:1px solid rgba(23,20,15,.2); }
+  .roster-row{ padding-block:32px; border-bottom:1px solid rgba(23,20,15,.2); display:flex; gap:24px; align-items:flex-start; }
+  .roster-row:nth-child(1){ transition-delay:0s; }
+  .roster-row:nth-child(2){ transition-delay:.12s; }
+  .roster-seal{ width:56px; height:56px; flex-shrink:0; margin-top:4px; }
+  .roster-main{ display:flex; flex-wrap:wrap; align-items:baseline; gap:14px; margin-bottom:8px; }
+  .roster-name{ font-family:var(--font-display); font-weight:700; font-size:clamp(1.4rem,2vw + .8rem,2rem); letter-spacing:.01em; text-transform:uppercase; }
+  .roster-role{ font-family:var(--font-mono); font-size:.72rem; letter-spacing:.1em; text-transform:uppercase; color:var(--seal); border:1px solid var(--seal); padding:4px 10px; }
+  .roster-cred{ font-family:var(--font-body); color:rgba(23,20,15,.75); max-width:60ch; line-height:1.6; }
+
+  /* ===== Masters ===== */
+  .masters-grid{ margin-top:40px; display:grid; grid-template-columns:repeat(3,1fr); gap:24px; }
+  .master-card{ background:var(--paper); color:var(--ink); padding:36px 26px; text-align:center; position:relative; border:1px solid var(--brass); }
+  .master-card::before{ content:""; position:absolute; top:0; left:0; right:0; height:4px; background:var(--seal); }
+  .master-card:nth-child(1){ transition-delay:0s; }
+  .master-card:nth-child(2){ transition-delay:.12s; }
+  .master-card:nth-child(3){ transition-delay:.24s; }
+  .master-badge{ display:inline-flex; align-items:center; justify-content:center; width:64px; height:64px; border-radius:50%; background:var(--ink); color:var(--brass-light); font-family:var(--font-display); font-weight:700; font-size:1.3rem; margin-bottom:20px; border:2px solid var(--seal); }
+  .master-name{ display:block; font-family:var(--font-display); font-weight:600; font-size:1.3rem; text-transform:uppercase; margin-bottom:6px; }
+  .master-title{ display:block; font-family:var(--font-mono); font-size:.72rem; letter-spacing:.1em; text-transform:uppercase; color:var(--seal); }
+  .masters-note{ margin-top:32px; font-family:var(--font-body); font-style:italic; color:rgba(245,239,224,.7); max-width:56ch; }
+
+  @media (max-width:880px){ .masters-grid{ grid-template-columns:1fr; } }
+
+  /* ===== Programs ===== */
+  .programs-grid{ margin-top:40px; display:grid; grid-template-columns:repeat(3,1fr); gap:1px; background:var(--line); border:1px solid var(--line); }
+  .program-card{ background:var(--ink-2); padding:36px 28px; }
+  .program-card:nth-child(1){ transition-delay:0s; }
+  .program-card:nth-child(2){ transition-delay:.12s; }
+  .program-card:nth-child(3){ transition-delay:.24s; }
+  .program-index{ display:block; font-family:var(--font-display); font-weight:700; font-size:1.6rem; text-transform:uppercase; color:var(--brass-light); margin-bottom:14px; letter-spacing:.02em; }
+  .program-card p{ font-family:var(--font-body); color:rgba(245,239,224,.82); line-height:1.65; }
+
+  .grading-line{ margin-top:64px; padding-top:40px; border-top:1px solid var(--line); }
+  .grading-label{ font-family:var(--font-mono); font-size:.8rem; letter-spacing:.12em; text-transform:uppercase; color:var(--brass-light); margin-bottom:26px; }
+  .belt-bar{ display:flex; gap:6px; margin-bottom:38px; overflow-x:auto; padding-bottom:30px; }
+  .belt{ flex:1; min-width:44px; height:36px; background:var(--belt-color); position:relative; border:1px solid rgba(0,0,0,.3); }
+  .belt::after{ content:attr(data-name); position:absolute; top:100%; left:50%; transform:translateX(-50%); margin-top:10px; font-family:var(--font-mono); font-size:.6rem; letter-spacing:.04em; color:var(--muted); white-space:nowrap; }
+  .grading-caption{ font-family:var(--font-body); font-style:italic; color:rgba(245,239,224,.7); max-width:56ch; margin-bottom:40px; }
+
+  @media (max-width:880px){ .programs-grid{ grid-template-columns:1fr; } }
+
+  /* ===== Contact ===== */
+  .contact-grid{ margin-top:40px; display:grid; grid-template-columns:1fr 1fr; gap:48px; align-items:start; }
+  .info-row{ display:flex; gap:16px; padding-block:16px; border-bottom:1px solid var(--line); font-family:var(--font-body); font-size:1.05rem; }
+  .info-label{ font-family:var(--font-mono); font-size:.72rem; letter-spacing:.1em; text-transform:uppercase; color:var(--brass-light); min-width:92px; padding-top:3px; }
+  .info-row a{ color:var(--rice); text-decoration:none; border-bottom:1px solid var(--seal); }
+  .contact-ctas{ display:flex; flex-direction:column; gap:16px; align-items:flex-start; }
+
+  @media (max-width:880px){ .contact-grid{ grid-template-columns:1fr; gap:32px; } }
+
+  /* ===== Footer ===== */
+  footer{ background:var(--ink-2); border-top:1px solid var(--brass); padding-block:56px 32px; }
+  .footer-inner{ display:flex; flex-wrap:wrap; justify-content:space-between; gap:32px; margin-bottom:32px; }
+  .footer-brand{ display:flex; align-items:center; gap:14px; }
+  .footer-links{ display:flex; flex-wrap:wrap; gap:20px; font-family:var(--font-mono); font-size:.8rem; }
+  .footer-links a{ color:var(--rice); text-decoration:none; opacity:.8; }
+  .footer-links a:hover{ opacity:1; color:var(--brass-light); }
+  .footer-meta{ font-family:var(--font-mono); font-size:.72rem; color:var(--muted); display:flex; flex-direction:column; gap:6px; text-align:right; }
+  .footer-bottom{ border-top:1px solid var(--line); padding-top:24px; font-family:var(--font-mono); font-size:.7rem; color:var(--muted); text-align:center; }
+
+  @media (max-width:600px){
+    .footer-inner{ flex-direction:column; }
+    .footer-meta{ text-align:left; }
+  }
+</style>
 </head>
-<body class="font-sans antialiased overflow-x-hidden">
+<body>
 
-    <!-- Navbar -->
-    <nav class="fixed w-full z-50 bg-dragon-dark/90 backdrop-blur-md border-b border-white/10 transition-all duration-300">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex justify-between h-24">
-                <div class="flex items-center gap-4">
-                    <div class="w-14 h-14 bg-dragon-red rounded-full flex items-center justify-center border-2 border-dragon-gold shadow-[0_0_15px_rgba(220,38,38,0.5)]">
-                        <i class="fa-solid fa-dragon text-3xl text-white"></i>
-                    </div>
-                    <div>
-                        <h1 class="font-display text-2xl sm:text-3xl font-bold text-white uppercase tracking-wider leading-none">
-                            Little Dragon
-                        </h1>
-                        <span class="text-dragon-gold text-xs sm:text-sm font-bold tracking-widest uppercase mt-1 block">
-                            Martial Arts Academy
-                        </span>
-                    </div>
-                </div>
-                
-                <!-- Desktop Nav -->
-                <div class="hidden md:flex items-center space-x-8">
-                    <a href="#home" class="font-display uppercase tracking-wider text-gray-300 hover:text-dragon-red transition-colors">Home</a>
-                    <a href="#about" class="font-display uppercase tracking-wider text-gray-300 hover:text-dragon-red transition-colors">About</a>
-                    <a href="#masters" class="font-display uppercase tracking-wider text-gray-300 hover:text-dragon-red transition-colors">Masters</a>
-                    <a href="tel:9539201008" class="border-2 border-dragon-red text-white px-6 py-2 font-display uppercase tracking-wider hover:bg-dragon-red transition-colors flex items-center gap-2">
-                        <i class="fa-solid fa-phone"></i> 95392 01008
-                    </a>
-                </div>
+<svg style="position:absolute; width:0; height:0; overflow:hidden;" aria-hidden="true">
+  <symbol id="sealMark" viewBox="0 0 200 200">
+    <circle cx="100" cy="100" r="94" fill="none" stroke="#B4923F" stroke-width="3"/>
+    <circle cx="100" cy="100" r="84" fill="none" stroke="#9F2B2F" stroke-width="1.5" stroke-dasharray="1 7" stroke-linecap="round"/>
+    <circle cx="100" cy="100" r="72" fill="#B4923F"/>
+    <path d="M100,28 A72,72 0 0 1 100,172 A36,36 0 0 1 100,100 A36,36 0 0 0 100,28 Z" fill="#9F2B2F"/>
+    <circle cx="100" cy="64" r="9" fill="#B4923F"/>
+    <circle cx="100" cy="136" r="9" fill="#9F2B2F"/>
+    <circle cx="100" cy="10" r="3.5" fill="#33473A"/>
+    <circle cx="190" cy="100" r="3.5" fill="#F5EFE0"/>
+    <circle cx="100" cy="190" r="3.5" fill="#33473A"/>
+    <circle cx="10" cy="100" r="3.5" fill="#F5EFE0"/>
+  </symbol>
+</svg>
 
-                <!-- Mobile Menu Button -->
-                <div class="md:hidden flex items-center">
-                    <button onclick="document.getElementById('mobile-menu').classList.toggle('hidden')" class="text-white p-2">
-                        <i class="fa-solid fa-bars text-3xl"></i>
-                    </button>
-                </div>
-            </div>
+<nav id="nav">
+  <div class="nav-inner">
+    <a href="#home" class="brand">
+      <svg class="seal-mark small" aria-hidden="true"><use href="#sealMark"/></svg>
+      <span class="brand-text">
+        <span class="brand-name">Little Dragon</span>
+        <span class="brand-sub">MARTIAL ARTS ACADEMY</span>
+      </span>
+    </a>
+    <button id="navToggle" class="nav-toggle" aria-label="Toggle menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+    <div class="nav-links" id="navLinks">
+      <a href="#about">About</a>
+      <a href="#roster">Roster</a>
+      <a href="#masters">Masters</a>
+      <a href="#programs">Programs</a>
+      <a href="#contact">Contact</a>
+      <a href="tel:+919539201008" class="nav-cta">Call Now</a>
+    </div>
+  </div>
+</nav>
+
+<header class="hero" id="home">
+  <div class="hero-inner">
+    <div class="hero-text">
+      <p class="eyebrow-hero">Chinese Kung-Fu &middot; Wushu &middot; Yoga</p>
+      <h1 class="hero-title">
+        <span class="line line-1">The Strike.</span>
+        <span class="line line-2">The Stillness.</span>
+      </h1>
+      <p class="hero-sub">Little Dragon Martial Arts Academy trains hard-style Kung-Fu and Wushu alongside Yoga, examined and graded under one roof in Ayarkunnam.</p>
+      <div class="hero-ctas">
+        <a href="#masters" class="btn btn-primary">Meet the Masters</a>
+        <a href="#programs" class="btn btn-outline">View Programs</a>
+      </div>
+    </div>
+    <div class="hero-seal">
+      <svg class="seal-mark large" aria-hidden="true"><use href="#sealMark"/></svg>
+    </div>
+  </div>
+  <div class="ledger-strip">
+    <span>REG. NO. KTM/TC/15/2015</span>
+    <span class="dot">&bull;</span>
+    <span>H.O. AYARKUNNAM, KOTTAYAM</span>
+    <span class="dot">&bull;</span>
+    <span>MOB. 95392 01008</span>
+  </div>
+</header>
+
+<main>
+
+  <section id="about" class="section bg-ink">
+    <div class="container">
+      <div class="reveal">
+        <p class="eyebrow">The Academy</p>
+        <h2>Two Disciplines, One Practice</h2>
+        <p class="lead">Kung-Fu and Wushu build the strike &mdash; stances, forms, and self-defense, drilled toward examined black-belt duan grading. Yoga builds the stillness underneath it &mdash; breath, flexibility, and calm. Little Dragon teaches both under one roof, to students of every age, examined by the same certifying instructors who lead the academy.</p>
+      </div>
+      <div class="ledger-rows reveal">
+        <div class="ledger-row">
+          <span class="ledger-label">Examined Grading</span>
+          <span class="ledger-desc">Rank is tested and certified by our own Chief Examiner, not assumed.</span>
         </div>
-        
-        <!-- Mobile Nav -->
-        <div id="mobile-menu" class="hidden md:hidden bg-dragon-card border-t border-white/10 absolute w-full">
-            <div class="px-4 py-4 space-y-4 flex flex-col">
-                <a href="#home" class="font-display uppercase text-lg text-white">Home</a>
-                <a href="#about" class="font-display uppercase text-lg text-white">About</a>
-                <a href="#masters" class="font-display uppercase text-lg text-white">Masters</a>
-                <a href="tel:9539201008" class="text-dragon-gold font-bold"><i class="fa-solid fa-phone mr-2"></i>95392 01008</a>
-            </div>
+        <div class="ledger-row">
+          <span class="ledger-label">Hard + Soft</span>
+          <span class="ledger-desc">Kung-Fu and Wushu strike. Yoga steadies. Both are part of the same curriculum.</span>
         </div>
-    </nav>
+        <div class="ledger-row">
+          <span class="ledger-label">All Ages</span>
+          <span class="ledger-desc">Kids, teens, and adults train side by side on the same floor.</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="roster" class="section">
+    <div class="container">
+      <div class="reveal">
+        <p class="eyebrow">Leadership</p>
+        <h2>The Roster</h2>
+        <p class="lead">The academy is led and examined by two certifying instructors.</p>
+      </div>
+      <div class="roster-list">
+        <div class="roster-row reveal">
+          <svg class="roster-seal" aria-hidden="true"><use href="#sealMark"/></svg>
+          <div>
+            <div class="roster-main">
+              <span class="roster-name">Jithin George</span>
+              <span class="roster-role">President</span>
+            </div>
+            <p class="roster-cred">Chief Examiner &amp; Chief Instructor &middot; Yoga Trainer &middot; Kung-Fu IV Duan Black Belt &amp; Wushu Instructor</p>
+          </div>
+        </div>
+        <div class="roster-row reveal">
+          <svg class="roster-seal" aria-hidden="true"><use href="#sealMark"/></svg>
+          <div>
+            <div class="roster-main">
+              <span class="roster-name">Manju Jithin</span>
+              <span class="roster-role">Secretary</span>
+            </div>
+            <p class="roster-cred">Chief Instructor &middot; Kung-Fu Black Belt</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="masters" class="section bg-ink">
+    <div class="container">
+      <div class="reve    </nav>
 
     <!-- Hero Section -->
     <section id="home" class="hero-bg min-h-screen flex items-center relative pt-24 clip-diagonal pb-32">
