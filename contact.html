@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact - Little Dragon</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="no-intro">
+    <nav class="glass-nav">
+        <div class="logo-area">
+            <img src="assets/1000696694.png" alt="Logo" class="nav-logo">
+            <h2>Little Dragon</h2>
+        </div>
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="media.html">Media</a></li>
+            <li><a href="contact.html" class="active">Contact Us</a></li>
+        </ul>
+    </nav>
+
+    <div class="container">
+        <section class="masters-section glass-panel">
+            <h2 class="glow-text">Our Black Belt Masters</h2>
+            <ul class="masters-list">
+                <li><strong>Albin Sebastian</strong> - Black Belt</li>
+                <li><strong>M Highcourt Maharaja</strong> - Master</li>
+                <li><strong>Geemon P Augustin</strong> - Master</li>
+            </ul>
+        </section>
+
+        <section class="contact-section glass-panel">
+            <h2>Enroll Now</h2>
+            <form id="whatsapp-form">
+                <div class="input-group">
+                    <label>Full Name</label>
+                    <input type="text" id="wa-name" required placeholder="Enter your name">
+                </div>
+                <div class="input-group">
+                    <label>Age</label>
+                    <input type="number" id="wa-age" required placeholder="Enter your age">
+                </div>
+                <div class="input-group">
+                    <label>Prior Experience</label>
+                    <select id="wa-exp">
+                        <option value="Beginner">Beginner (No experience)</option>
+                        <option value="Intermediate">Intermediate</option>
+                        <option value="Advanced">Advanced / Black Belt</option>
+                    </select>
+                </div>
+                <div class="input-group">
+                    <label>Desired Service</label>
+                    <select id="wa-service">
+                        <option value="Kung-Fu">Chinese Kung-Fu</option>
+                        <option value="Yoga">Yoga Training</option>
+                        <option value="Both">Both</option>
+                    </select>
+                </div>
+                <button type="button" class="btn-glow" onclick="sendToWhatsApp()">Send to WhatsApp</button>
+            </form>
+        </section>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
+
