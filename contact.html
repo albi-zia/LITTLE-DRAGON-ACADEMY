@@ -1,67 +1,164 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contact - Little Dragon</title>
-    <link rel="stylesheet" href="style.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Contact | Little Dragon Martial Arts Academy</title>
+<meta name="description" content="Get in touch with Little Dragon Martial Arts Academy, Ayarkunnam. Send your enquiry straight to our WhatsApp.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@400;500;600;700;800;900&amp;family=Inter:wght@400;500;600;700&amp;family=IBM+Plex+Mono:wght@400;500;600&amp;display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+<link rel="icon" type="image/png" href="media/logo/favicon.png">
 </head>
-<body class="no-intro">
-    <nav class="glass-nav">
-        <div class="logo-area">
-            <img src="assets/1000696694.png" alt="Logo" class="nav-logo">
-            <h2>Little Dragon</h2>
-        </div>
-        <ul class="nav-links">
-            <li><a href="index.html">Home</a></li>
-            <li><a href="media.html">Media</a></li>
-            <li><a href="contact.html" class="active">Contact Us</a></li>
-        </ul>
-    </nav>
+<body data-page="contact">
 
-    <div class="container">
-        <section class="masters-section glass-panel">
-            <h2 class="glow-text">Our Black Belt Masters</h2>
-            <ul class="masters-list">
-                <li><strong>Albin Sebastian</strong> - Black Belt</li>
-                <li><strong>M Highcourt Maharaja</strong> - Master</li>
-                <li><strong>Geemon P Augustin</strong> - Master</li>
-            </ul>
-        </section>
-
-        <section class="contact-section glass-panel">
-            <h2>Enroll Now</h2>
-            <form id="whatsapp-form">
-                <div class="input-group">
-                    <label>Full Name</label>
-                    <input type="text" id="wa-name" required placeholder="Enter your name">
-                </div>
-                <div class="input-group">
-                    <label>Age</label>
-                    <input type="number" id="wa-age" required placeholder="Enter your age">
-                </div>
-                <div class="input-group">
-                    <label>Prior Experience</label>
-                    <select id="wa-exp">
-                        <option value="Beginner">Beginner (No experience)</option>
-                        <option value="Intermediate">Intermediate</option>
-                        <option value="Advanced">Advanced / Black Belt</option>
-                    </select>
-                </div>
-                <div class="input-group">
-                    <label>Desired Service</label>
-                    <select id="wa-service">
-                        <option value="Kung-Fu">Chinese Kung-Fu</option>
-                        <option value="Yoga">Yoga Training</option>
-                        <option value="Both">Both</option>
-                    </select>
-                </div>
-                <button type="button" class="btn-glow" onclick="sendToWhatsApp()">Send to WhatsApp</button>
-            </form>
-        </section>
+<nav id="nav">
+  <div class="nav-inner">
+    <a href="index.html" class="brand">
+      <span class="logo-mark"><img class="seal-mark small" src="media/logo/logo-icon.jpg" alt="Little Dragon Martial Arts Academy"></span>
+      <span class="brand-text">
+        <span class="brand-name">Little Dragon</span>
+        <span class="brand-sub">MARTIAL ARTS ACADEMY</span>
+      </span>
+    </a>
+    <button id="navToggle" class="nav-toggle" aria-label="Toggle menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+    <div class="nav-links" id="navLinks">
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="masters.html">Masters</a>
+      <a href="programs.html">Programs</a>
+      <a href="gallery.html">Gallery</a>
+      <a href="notices.html">Notices</a>
+      <a href="contact.html" class="nav-cta active">Contact</a>
     </div>
+  </div>
+</nav>
 
-    <script src="script.js"></script>
+<header class="page-hero">
+  <div class="glow-orb glow-crimson" style="width:460px;height:460px; top:-15%; right:-12%;"></div>
+  <div class="glow-orb glow-gold" style="width:340px;height:340px; bottom:-15%; left:-10%;"></div>
+  <div class="container">
+    <div class="reveal">
+      <p class="eyebrow">Visit &amp; Enquire</p>
+      <h1>Get In <span class="grad-text">Touch</span></h1>
+      <p class="lead">Fill in your details and we'll open a WhatsApp chat with everything ready to send.</p>
+    </div>
+  </div>
+</header>
+
+<main>
+  <section class="section" style="padding-top:20px;">
+    <div class="container">
+      <div class="contact-layout">
+
+        <div class="contact-info-card glass-card reveal">
+          <p class="eyebrow">Reach Us</p>
+          <div class="info-row"><span class="info-label">H.O.</span><span>Ayarkunnam, Kottayam, Kerala</span></div>
+          <div class="info-row"><span class="info-label">Mob.</span><a href="tel:+919539201008">95392 01008</a></div>
+          <div class="info-row"><span class="info-label">Reg. No.</span><span>KTM/TC/15/2015</span></div>
+          <div class="btn-row">
+            <a href="tel:+919539201008" class="btn btn-glass">Call Now</a>
+            <a href="https://www.google.com/maps/search/?api=1&amp;query=Little+Dragon+Martial+Arts+Academy+Ayarkunnam+Kottayam" target="_blank" rel="noopener" class="btn btn-glass">Get Directions</a>
+          </div>
+        </div>
+
+        <div class="enquiry-card glass-card reveal">
+          <h3>Send An Enquiry</h3>
+          <p>Tell us a bit about yourself — this opens straight into a WhatsApp chat with your details filled in.</p>
+
+          <form id="enquiryForm" novalidate>
+            <div class="form-grid">
+              <div class="form-field full">
+                <label for="fName">Full Name</label>
+                <input type="text" id="fName" name="name" placeholder="Your name" autocomplete="name">
+                <span class="form-error" id="err-name"></span>
+              </div>
+
+              <div class="form-field">
+                <label for="fAge">Age</label>
+                <input type="number" id="fAge" name="age" min="3" max="99" placeholder="Age" autocomplete="off">
+                <span class="form-error" id="err-age"></span>
+              </div>
+
+              <div class="form-field">
+                <label for="fPhone">Contact Number</label>
+                <input type="tel" id="fPhone" name="phone" placeholder="10-digit mobile number" autocomplete="tel">
+                <span class="form-error" id="err-phone"></span>
+              </div>
+
+              <div class="form-field">
+                <label for="fExperience">Experience</label>
+                <select id="fExperience" name="experience">
+                  <option value="" disabled selected>Choose one</option>
+                  <option value="New to martial arts">New to martial arts</option>
+                  <option value="Some experience">Some experience</option>
+                  <option value="Experienced practitioner">Experienced practitioner</option>
+                  <option value="Returning student">Returning student</option>
+                </select>
+                <span class="form-error" id="err-experience"></span>
+              </div>
+
+              <div class="form-field">
+                <label for="fProgram">Interested Program</label>
+                <select id="fProgram" name="program">
+                  <option value="" disabled selected>Choose one</option>
+                  <option value="Kung-Fu">Kung-Fu</option>
+                  <option value="Wushu">Wushu</option>
+                  <option value="Yoga">Yoga</option>
+                  <option value="Not sure yet">Not sure yet</option>
+                </select>
+                <span class="form-error" id="err-program"></span>
+              </div>
+            </div>
+
+            <button type="submit" class="btn btn-glow form-submit">Send via WhatsApp</button>
+            <p class="form-status" id="formStatus"></p>
+            <p class="form-note">This opens WhatsApp with your details pre-filled — nothing is sent until you hit send there.</p>
+          </form>
+        </div>
+
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="glow-orb glow-crimson" style="width:400px;height:400px; bottom:-220px; left:-100px; opacity:.35;"></div>
+  <div class="container">
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <img class="seal-mark medium" src="media/logo/logo-icon.jpg" alt="Little Dragon Martial Arts Academy">
+        <div>
+          <div class="brand-text">
+            <span class="brand-name">Little Dragon</span>
+            <span class="brand-sub">MARTIAL ARTS ACADEMY</span>
+          </div>
+          <p>Chinese Kung-Fu, Wushu &amp; Yoga in Ayarkunnam, Kottayam.</p>
+        </div>
+      </div>
+      <nav class="footer-links">
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="masters.html">Masters</a>
+        <a href="programs.html">Programs</a>
+        <a href="gallery.html">Gallery</a>
+        <a href="notices.html">Notices</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+      <div class="footer-meta">
+        <span>Ayarkunnam, Kottayam, Kerala</span>
+        <span>95392 01008</span>
+        <span>Reg. No. KTM/TC/15/2015</span>
+      </div>
+    </div>
+    <div class="footer-bottom">&copy; 2026 Little Dragon Martial Arts Academy. All rights reserved.</div>
+  </div>
+</footer>
+
+<script src="js/contact.js"></script>
+<script src="js/main.js"></script>
 </body>
 </html>
-
